@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMR Visual</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Belanosima&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="heading">
+        <div class="titleDiv">
+            <i style="background-color: black">AMR Visual</i>
+        </div>
+        <div class="contactDiv">
+            <nav class = "navbar">
+                <ul class = "navbar__menu">
+                    <li><a href="https://www.facebook.com/EXEBros.TV"><img src="icon fb.png" alt="fb icon" class = "navbar__item" height = 100%></a></li>
+                    <li><a href="" id = 'contact' class = "navbar__item"> Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="main1">
+        <div class="slideshow__container">
+            <a class="buttons" onclick="slides__next(-1)">&#171</a>
+            <div class="slides__content">
+                <a href="people.html" style = "display: flex;" class = "images_ref"><img class = "images_categories fade" src="people.jpg" alt="people"></a>
+                <p class="title__categories">PEOPLE</p>
+            </div>
+            <div class="slides__content fade">
+                <a href="car.html" style = "display: flex;" class = "images_ref"><img class = "images_categories fade" src="car.png" alt="car"></a>
+                <p class="title__categories">CAR</p>
+            </div>
+            <div class="slides__content fade">
+                <a href="nature.html" style = "display: flex;" class = "images_ref"><img class = "images_categories fade" src="nature.png" alt="nature"></a>
+                <p class="title__categories">NATURE</p>
+            </div>
+            <div class="slides__content fade">
+                <a href="landscape.html" style = "display: flex;" class = "images_ref"><img class = "images_categories fade" src="landscape.png" alt="landscape"></a>
+                <p class="title__categories">LANDSCAPE</p>
+            </div>
+            <a class="buttons" onclick="slides__next(1)">&#187</a>
+
+        </div>
+    </div>
+    <script>
+        let slidesIndex = 0;
+        slideShow(slidesIndex);
+        function slides__next(n){
+            slideShow(slidesIndex += n);
+        }
+
+        function slideShow(n){
+            let i;
+            let slides = document.getElementsByClassName("slides__content");
+            if (n < 0){
+                slidesIndex = slides.length - 1;
+            }
+
+            if (n > slides.length - 1){
+                slidesIndex = 0;
+            }
+
+            for (i = 0; i < slides.length; i++){
+                slides[i].style.display = "none";
+            }
+
+            slides[slidesIndex].style.display = "flex";
+        }
+
+        
+    </script>
+</body>
+</html>
